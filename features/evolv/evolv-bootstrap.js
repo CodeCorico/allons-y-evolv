@@ -14,7 +14,15 @@ module.exports = function($allonsy, $options, $done) {
 
   (fs.existsSync(versionsPath) ? fs.readFileSync(versionsPath, 'utf-8') : '').split('\n').map(function(version) {
     version = version.split('=');
-    if (version.length < 2 || !version[0].trim() || !version[1].trim()) {
+
+    if (version.length < 2) {
+      return;
+    }
+
+    version[0] = version[0].trim();
+    version[1] = version[1].trim();
+
+    if (!version[0] || !version[1] || version[0].indexOf('#') === 0) {
       return;
     }
 
@@ -71,12 +79,14 @@ module.exports = function($allonsy, $options, $done) {
     });
 
   }, function() {
-    fs.writeFileSync(versionsPath, Object
-      .keys(versions)
-      .map(function(key) {
-        return key + '=' + versions[key];
-      })
-      .join('\n')
+    fs.writeFileSync(versionsPath,
+      '# Ignore this file in your repository\n\n' +
+      Object
+        .keys(versions)
+        .map(function(key) {
+          return key + '=' + versions[key];
+        })
+        .join('\n')
     );
 
     $done();
