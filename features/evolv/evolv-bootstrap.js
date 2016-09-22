@@ -65,13 +65,13 @@ module.exports = function($allonsy, $options, $done) {
       return nextPath();
     }
 
-    $allonsy.outputInfo('► [Evolve] "' + pathToEvolv.module + '" to ' + packageJson.version + '...');
+    $allonsy.outputInfo('► [Evolve] "' + pathToEvolv.module + '" to ' + packageJson.version + '...', false);
 
     evolv({
       path: moduleVersionsPath,
       silent: true
     }, versions[pathToEvolv.module], function() {
-      $allonsy.outputSuccess(' DONE\n');
+      $allonsy.outputSuccess(' DONE');
 
       versions[pathToEvolv.module] = packageJson.version;
 
