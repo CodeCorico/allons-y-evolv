@@ -1,23 +1,21 @@
 {
   "name": "allons-y-evolv",
-  "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "version": "1.0.0",
+  "description": "Interact with the evolv module.",
+  "license": "MIT",
+  "homepage": "http://allons-y.io",
+  "author": "CodeCorico <hello@codecorico.com>",
+  "bugs": "https://github.com/CodeCorico/allons-y-evolv/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/CodeCorico/allons-y-evolv.git"
   },
-  "author": "CodeCorico <hello@codecorico.com>",
-  "bugs": {
-    "url": "https://github.com/CodeCorico/allons-y-evolv/issues"
-  },
-  "homepage": "https://github.com/CodeCorico/allons-y-evolv",
   "engines": {
     "node": ">=4.1",
     "npm": ">=3.2"
   },
-  "license": "MIT",
   "dependencies": {
+    "allons-y": "^1.0.0",
     "async": "^2.0.1",
     "evolv": "^0.1.5",
     "fs-extra": "^0.30.0"
